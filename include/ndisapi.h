@@ -145,7 +145,7 @@ class NDISAPI_API CNdisApi
     class CWow64Helper;
 
 public:
-    CNdisApi(const TCHAR* pszFileName = _T(DRIVER_NAME_A));
+    CNdisApi(const char* pszFileName = DRIVER_NAME_A);
     virtual ~CNdisApi();
 
 #if _MSC_VER >= 1800 && !defined(_USING_V110_SDK71_)

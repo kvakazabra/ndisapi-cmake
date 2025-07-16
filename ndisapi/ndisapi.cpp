@@ -42,6 +42,8 @@
 
 #define OID_GEN_CURRENT_PACKET_FILTER            0x0001010E
 
+#pragma comment(lib, "Ws2_32.lib")
+
 // OS version information
 CVersionInfo CNdisApi::ms_Version;
 
@@ -263,12 +265,12 @@ void CNdisApi::CWow64Helper::Update(const TCP_AdapterList_WOW64& adapterListWow6
  *
  * @param pszFileName A const TCHAR pointer to the name of the driver file to be opened.
  */
-CNdisApi::CNdisApi(const TCHAR* pszFileName) :
+CNdisApi::CNdisApi(const char* pszFileName) :
     m_ovlp(),
     m_pfnIsWow64Process(NULL),
     m_Wow64Helper(CWow64Helper::getInstance())
 {
-    TCHAR pszFullName[FILE_NAME_SIZE];
+    char pszFullName[FILE_NAME_SIZE];
 
     // Format full file name
 #if _MSC_VER >= 1700

@@ -9,7 +9,6 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
     set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
 endif()
 
-set(PLATFORM "x64")
 
 add_library(ndisapi STATIC)
 
@@ -29,7 +28,9 @@ target_compile_definitions(ndisapi PRIVATE
     $<$<CONFIG:Release>:NDEBUG>
 )
 
+set(PLATFORM "x64")
+
 set_target_properties(ndisapi PROPERTIES
-    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib/${PLATFORM}"
-    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/${PLATFORM}"
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin-${PLATFORM}"
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin-${PLATFORM}"
 )
