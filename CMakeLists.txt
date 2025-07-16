@@ -13,7 +13,7 @@ set(PLATFORM "x64")
 
 add_library(ndisapi STATIC)
 
-target_include_directories(ndisapi PUBLIC include)
+target_include_directories(ndisapi PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../)
 
 file(GLOB SOURCES
     "ndisapi/*.cpp"
